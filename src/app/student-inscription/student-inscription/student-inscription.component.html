@@ -1,1 +1,56 @@
-<button mat-raised-button color="accent">Material</button>
+<form>
+  <div>
+    <mat-form-field> <input matInput placeholder="Nom" /> </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field> <input matInput placeholder="Prenom" /> </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field> <input matInput placeholder="Tel" /> </mat-form-field>
+  </div>
+  <!-- Ecole -->
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Ton ecole">
+        <mat-option
+          *ngFor="
+            let school of [
+              'CEM Medina',
+              'Lycee Delafosse',
+              'Lycee Blaise Diagne'
+            ]
+          "
+          [value]="school"
+        >
+          {{ school }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <!-- Quartier -->
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Ton quartier">
+        <mat-option
+          *ngFor="let district of ['Medina', 'Geule Tapee', 'Rebeuss']"
+          [value]="district"
+        >
+          {{ district }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <!-- Matieres -->
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Tu t'iscris sur quelles matieres?" multiple>
+        <mat-option
+          *ngFor="let subject of ['Maths', 'Programmation']"
+          [value]="subject"
+          >{{ subject }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-stroked-button color="accent">S'inscrire</button>
+</form>
