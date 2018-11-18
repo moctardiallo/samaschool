@@ -6,17 +6,19 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./student-inscription.component.css"]
 })
 export class StudentInscriptionComponent implements OnInit {
-  etapes = ["Informations Scolaires"];
-
   ecoles = ["CEM Medina", "Lycee Delafosse", "Lycee Blaise Diagne"];
+
+  classes = ["6eme", "5eme", "4eme", "3eme", "2nd", "1ere", "Terminale"];
 
   matieres = ["Maths", "Programmation"];
 
   nom = "";
-
   prenom = "";
-
   tel = "";
+  quartier = "";
+  ecole = "";
+  classe = "";
+  matiere = "";
 
   quartiers = ["Medina", "Geule Tapee", "Rebeuss"];
 
@@ -24,8 +26,13 @@ export class StudentInscriptionComponent implements OnInit {
 
   ngOnInit() {}
 
-  presentGeneralInformation(info: string): void {
-    this.nom = info;
-    console.log(this.nom);
+  getEleveInfo(nom, prenom, tel, quartier, ecole, classe, matiere): void {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.tel = tel;
+    this.quartier = quartier;
+    this.ecole = ecole;
+    this.classe = classe;
+    this.matiere = matiere;
   }
 }

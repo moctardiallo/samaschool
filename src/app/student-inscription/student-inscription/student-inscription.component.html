@@ -1,11 +1,21 @@
 <mat-vertical-stepper>
-  <mat-step label="{{etapes[0]}}">
+  <mat-step label="Informations Scolaires">
     <!-- Ecole -->
     <div>
       <mat-form-field>
         <mat-select #ecole placeholder="Ton ecole">
           <mat-option *ngFor="let ecole of ecoles" [value]="ecole">
             {{ ecole }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- Classe -->
+    <div>
+      <mat-form-field>
+        <mat-select #classe placeholder="Ta classe">
+          <mat-option *ngFor="let classe of classes" [value]="classe">
+            {{ classe }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -67,7 +77,9 @@
     </div>
     <div>
       Ton addresse: {{ quartier.value }} <br />
-      Ton numero: {{ tel.value }} Ton ecole d'origine: {{ ecole.value }}
+      Ton numero: {{ tel.value }} <br />
+      Ton ecole d'origine: {{ ecole.value }} <br />
+      Ta classe: {{ classe.value }}
     </div>
     <div>Les cours que tu as choisis:</div>
     <ul>
@@ -76,7 +88,22 @@
     <div>Tarifs:</div>
     <div>
       <button mat-button matStepperPrevious>Retour</button>
-      <button mat-button>Valider</button>
+      <button
+        mat-button
+        (click)="
+          getEleveInfo(
+            nom.value,
+            prenom.value,
+            tel.value,
+            quartier.value,
+            ecole.value,
+            classe.value,
+            matieresRef.value
+          )
+        "
+      >
+        Valider
+      </button>
     </div>
   </mat-step>
 </mat-vertical-stepper>
