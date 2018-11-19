@@ -26,7 +26,7 @@ export class StudentInscriptionComponent implements OnInit {
 
   ngOnInit() {}
 
-  getEleveInfo(nom, prenom, tel, quartier, ecole, classe, matiere): void {
+  postEleveInfo(nom, prenom, tel, quartier, ecole, classe, matiere): void {
     this.eleve = {
       nom,
       prenom,
