@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from "@angular/flex-layout";
 import {
   MatButtonModule,
   MatInputModule,
@@ -14,6 +15,7 @@ import { FormsModule } from "@angular/forms";
   declarations: [StudentInscriptionComponent],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     MatButtonModule,
     MatInputModule,
