@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Eleve } from "../eleve";
 
 @Component({
   selector: "student-inscription",
@@ -12,13 +13,7 @@ export class StudentInscriptionComponent implements OnInit {
 
   matieres = ["Maths", "Programmation"];
 
-  nom = "";
-  prenom = "";
-  tel = "";
-  quartier = "";
-  ecole = "";
-  classe = "";
-  matiere = "";
+  eleve: Eleve;
 
   quartiers = ["Medina", "Geule Tapee", "Rebeuss"];
 
@@ -27,12 +22,15 @@ export class StudentInscriptionComponent implements OnInit {
   ngOnInit() {}
 
   getEleveInfo(nom, prenom, tel, quartier, ecole, classe, matiere): void {
-    this.nom = nom;
-    this.prenom = prenom;
-    this.tel = tel;
-    this.quartier = quartier;
-    this.ecole = ecole;
-    this.classe = classe;
-    this.matiere = matiere;
+    this.eleve = {
+      nom,
+      prenom,
+      tel,
+      quartier,
+      ecole,
+      classe,
+      matiere
+    };
+    console.log(this.eleve);
   }
 }
