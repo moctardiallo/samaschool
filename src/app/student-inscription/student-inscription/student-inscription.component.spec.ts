@@ -1,16 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatSelectModule } from "@angular/material";
+import { MatStepperModule } from "@angular/material";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { StudentInscriptionComponent } from './student-inscription.component';
+import { StudentInscriptionComponent } from "./student-inscription.component";
 
-describe('StudentInscriptionComponent', () => {
+fdescribe("StudentInscriptionComponent", () => {
   let component: StudentInscriptionComponent;
   let fixture: ComponentFixture<StudentInscriptionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentInscriptionComponent ]
-    })
-    .compileComponents();
+      declarations: [StudentInscriptionComponent],
+      imports: [BrowserAnimationsModule, MatStepperModule, MatSelectModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +22,7 @@ describe('StudentInscriptionComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

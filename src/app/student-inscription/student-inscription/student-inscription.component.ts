@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: "student-inscription",
@@ -21,6 +22,10 @@ export class StudentInscriptionComponent implements OnInit {
   matiere = "";
 
   quartiers = ["Medina", "Geule Tapee", "Rebeuss"];
+
+  firstFormGroup: FormGroup;
+  secondtFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
   constructor() {}
 

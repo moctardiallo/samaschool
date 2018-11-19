@@ -1,92 +1,82 @@
 <mat-vertical-stepper>
-  <mat-step label="Informations Scolaires">
+  <mat-step
+    label="Informations Scolaires"
+    fxLayout="column"
+    fxLayoutAlign="flex-center flex-center"
+    fxLayoutGap="0px"
+  >
     <!-- Ecole -->
-    <div>
-      <mat-form-field>
-        <mat-select #ecole placeholder="Ton ecole">
-          <mat-option *ngFor="let ecole of ecoles" [value]="ecole">
-            {{ ecole }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <mat-select #ecole placeholder="Ton ecole">
+        <mat-option *ngFor="let ecole of ecoles" [value]="ecole">
+          {{ ecole }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <!-- Classe -->
-    <div>
-      <mat-form-field>
-        <mat-select #classe placeholder="Ta classe">
-          <mat-option *ngFor="let classe of classes" [value]="classe">
-            {{ classe }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <mat-select #classe placeholder="Ta classe">
+        <mat-option *ngFor="let classe of classes" [value]="classe">
+          {{ classe }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <!-- Matieres -->
-    <div>
-      <mat-form-field>
-        <mat-select
-          #matieresRef
-          placeholder="Tu t'iscris sur quelles matieres?"
-          multiple
-        >
-          <mat-option *ngFor="let matiere of matieres" [value]="matiere">{{
-            matiere
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div><button mat-button matStepperNext>Suivant</button></div>
+
+    <mat-form-field>
+      <mat-select
+        #matieresRef
+        placeholder="Tu t'iscris sur quelles matieres?"
+        multiple
+      >
+        <mat-option *ngFor="let matiere of matieres" [value]="matiere">{{
+          matiere
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button matStepperNext>Suivant</button>
   </mat-step>
 
   <mat-step label="Informations Personnelles">
     <!-- Nom Prenom Tel -->
-    <div>
-      <mat-form-field>
-        <input #nom matInput placeholder="Nom" />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input #prenom matInput placeholder="Prenom" />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input #tel matInput placeholder="Tel" />
-      </mat-form-field>
-    </div>
+
+    <mat-form-field> <input #nom matInput placeholder="Nom" /> </mat-form-field>
+    <mat-form-field>
+      <input #prenom matInput placeholder="Prenom" />
+    </mat-form-field>
+
+    <mat-form-field> <input #tel matInput placeholder="Tel" /> </mat-form-field>
+
     <!-- Quartier -->
-    <div>
-      <mat-form-field>
-        <mat-select #quartier placeholder="Ton quartier">
-          <mat-option *ngFor="let quartier of quartiers" [value]="quartier">
-            {{ quartier }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div>
-      <button mat-button matStepperPrevious>Retour</button>
-      <button mat-button matStepperNext>Suivant</button>
-    </div>
+    <mat-form-field>
+      <mat-select #quartier placeholder="Ton quartier">
+        <mat-option *ngFor="let quartier of quartiers" [value]="quartier">
+          {{ quartier }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button matStepperPrevious>Retour</button>
+    <button mat-button matStepperNext>Suivant</button>
   </mat-step>
 
   <mat-step label="Resume">
-    <div>
+    <form>
       Merci {{ prenom.value }} {{ nom.value }} pour ton inscription. Voici tes
-      informations generales:
-    </div>
-    <div>
-      Ton addresse: {{ quartier.value }} <br />
+      informations generales: Ton addresse: {{ quartier.value }} <br />
       Ton numero: {{ tel.value }} <br />
       Ton ecole d'origine: {{ ecole.value }} <br />
       Ta classe: {{ classe.value }}
-    </div>
-    <div>Les cours que tu as choisis:</div>
-    <ul>
-      <li *ngFor="let matiere of matieresRef.selected">{{ matiere.value }}</li>
-    </ul>
-    <div>Tarifs:</div>
-    <div>
+
+      Les cours que tu as choisis:
+      <ul>
+        <li *ngFor="let matiere of matieresRef.selected">
+          {{ matiere.value }}
+        </li>
+      </ul>
+      Tarifs:
+
       <button mat-button matStepperPrevious>Retour</button>
       <button
         mat-button
@@ -104,6 +94,6 @@
       >
         Valider
       </button>
-    </div>
+    </form>
   </mat-step>
 </mat-vertical-stepper>
