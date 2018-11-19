@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Eleve
+from .serializers import EleveSerializer
+
+
+class EleveView(viewsets.ModelViewSet):
+    queryset = Eleve.objects.all()
+    serializer_class = EleveSerializer
