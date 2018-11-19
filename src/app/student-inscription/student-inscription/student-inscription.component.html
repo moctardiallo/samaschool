@@ -1,7 +1,11 @@
 <mat-vertical-stepper>
   <mat-step label="Informations Scolaires">
-    <!-- Ecole -->
-    <div>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <!-- Ecole -->
       <mat-form-field>
         <mat-select #ecole placeholder="Ton ecole">
           <mat-option *ngFor="let ecole of ecoles" [value]="ecole">
@@ -9,9 +13,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <!-- Classe -->
-    <div>
+      <!-- Classe -->
       <mat-form-field>
         <mat-select #classe placeholder="Ta classe">
           <mat-option *ngFor="let classe of classes" [value]="classe">
@@ -19,9 +21,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <!-- Matieres -->
-    <div>
+      <!-- Matieres -->
+
       <mat-form-field>
         <mat-select
           #matieresRef
@@ -33,29 +34,36 @@
           }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
+      >
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
     </div>
-    <div><button mat-button matStepperNext>Suivant</button></div>
   </mat-step>
 
   <mat-step label="Informations Personnelles">
-    <!-- Nom Prenom Tel -->
-    <div>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <!-- Nom Prenom Tel -->
+
       <mat-form-field>
         <input #nom matInput placeholder="Nom" />
       </mat-form-field>
-    </div>
-    <div>
       <mat-form-field>
         <input #prenom matInput placeholder="Prenom" />
       </mat-form-field>
-    </div>
-    <div>
+
       <mat-form-field>
         <input #tel matInput placeholder="Tel" />
       </mat-form-field>
-    </div>
-    <!-- Quartier -->
-    <div>
+
+      <!-- Quartier -->
       <mat-form-field>
         <mat-select #quartier placeholder="Ton quartier">
           <mat-option *ngFor="let quartier of quartiers" [value]="quartier">
@@ -63,47 +71,61 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <div>
-      <button mat-button matStepperPrevious>Retour</button>
-      <button mat-button matStepperNext>Suivant</button>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
+      >
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
     </div>
   </mat-step>
 
   <mat-step label="Resume">
-    <div>
-      Merci {{ prenom.value }} {{ nom.value }} pour ton inscription. Voici tes
-      informations generales:
-    </div>
-    <div>
-      Ton addresse: {{ quartier.value }} <br />
-      Ton numero: {{ tel.value }} <br />
-      Ton ecole d'origine: {{ ecole.value }} <br />
-      Ta classe: {{ classe.value }}
-    </div>
-    <div>Les cours que tu as choisis:</div>
-    <ul>
-      <li *ngFor="let matiere of matieresRef.selected">{{ matiere.value }}</li>
-    </ul>
-    <div>Tarifs:</div>
-    <div>
-      <button mat-button matStepperPrevious>Retour</button>
-      <button
-        mat-button
-        (click)="
-          getEleveInfo(
-            nom.value,
-            prenom.value,
-            tel.value,
-            quartier.value,
-            ecole.value,
-            classe.value,
-            matieresRef.value
-          )
-        "
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <p>Merci {{ prenom.value }} {{ nom.value }} pour ton inscription.</p>
+      <p>Voici tes informations generales:</p>
+      <p>Ton addresse: {{ quartier.value }}</p>
+      <p>Ton numero: {{ tel.value }}</p>
+      <p>Ton ecole d'origine: {{ ecole.value }}</p>
+      <p>Ta classe: {{ classe.value }}</p>
+
+      <p>Les cours que tu as choisis:</p>
+      <ul>
+        <li *ngFor="let matiere of matieresRef.selected">
+          {{ matiere.value }}
+        </li>
+      </ul>
+
+      <p>Tarifs: {{ matieresRef.selected.length * 10000 }} FCFA</p>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
       >
-        Valider
-      </button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button
+          mat-button
+          (click)="
+            getEleveInfo(
+              nom.value,
+              prenom.value,
+              tel.value,
+              quartier.value,
+              ecole.value,
+              classe.value,
+              matieresRef.value
+            )
+          "
+        >
+          Valider
+        </button>
+      </div>
     </div>
   </mat-step>
 </mat-vertical-stepper>
