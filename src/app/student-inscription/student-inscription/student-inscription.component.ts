@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Eleve } from "../eleve";
+import { StudentInscriptionService } from "../student-inscription.service";
 
 @Component({
   selector: "student-inscription",
@@ -22,7 +23,7 @@ export class StudentInscriptionComponent implements OnInit {
   secondtFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  constructor() {}
+  constructor(private eleveService: StudentInscriptionService) {}
 
   ngOnInit() {}
 
@@ -36,6 +37,7 @@ export class StudentInscriptionComponent implements OnInit {
       classe,
       matiere
     };
-    console.log(this.eleve);
+
+    this.eleveService.postEleveInfo(this.eleve);
   }
 }

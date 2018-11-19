@@ -10,6 +10,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { StudentInscriptionComponent } from "./student-inscription/student-inscription.component";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [StudentInscriptionComponent],
@@ -17,6 +18,7 @@ import { FormsModule } from "@angular/forms";
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
