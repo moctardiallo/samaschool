@@ -17,6 +17,7 @@ import { FormsModule } from "@angular/forms";
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatOptionModule,
