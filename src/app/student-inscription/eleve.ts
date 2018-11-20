@@ -5,5 +5,5 @@ export interface Eleve {
   quartier: string;
   ecole: string;
   classe: string;
-  matiere: string;
+  matieres: string[];
 }
