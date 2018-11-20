@@ -15,8 +15,6 @@ export class StudentInscriptionComponent implements OnInit {
 
   matieres = ["Maths", "Programmation"];
 
-  eleve: Eleve;
-
   quartiers = ["Medina", "Geule Tapee", "Rebeuss"];
 
   firstFormGroup: FormGroup;
@@ -28,7 +26,7 @@ export class StudentInscriptionComponent implements OnInit {
   ngOnInit() {}
 
   postEleveInfo(nom, prenom, tel, quartier, ecole, classe, matieres): void {
-    this.eleve = {
+    this.eleveService.postEleveInfo({
       nom,
       prenom,
       tel,
@@ -36,8 +34,6 @@ export class StudentInscriptionComponent implements OnInit {
       ecole,
       classe,
       matieres
-    };
-
-    this.eleveService.postEleveInfo(this.eleve);
+    });
   }
 }
