@@ -7,8 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "gh-pages -d docs"
   },
+  "homepage": "https://github.com/moctardiallo/samaschool",
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.0.0",
