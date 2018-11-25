@@ -1,0 +1,131 @@
+<mat-vertical-stepper>
+  <mat-step label="Informations Scolaires">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <!-- Ecole -->
+      <mat-form-field>
+        <mat-select #ecole placeholder="Ton ecole">
+          <mat-option *ngFor="let ecole of ecoles" [value]="ecole">
+            {{ ecole }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Classe -->
+      <mat-form-field>
+        <mat-select #classe placeholder="Ta classe">
+          <mat-option *ngFor="let classe of classes" [value]="classe">
+            {{ classe }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Matieres -->
+
+      <mat-form-field>
+        <mat-select
+          #matieresRef
+          placeholder="Tu t'iscris sur quelles matieres?"
+          multiple
+        >
+          <mat-option *ngFor="let matiere of matieres" [value]="matiere">{{
+            matiere
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
+      >
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step label="Informations Personnelles">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <!-- Nom Prenom Tel -->
+
+      <mat-form-field>
+        <input #nom matInput placeholder="Nom" />
+      </mat-form-field>
+      <mat-form-field>
+        <input #prenom matInput placeholder="Prenom" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input #tel matInput placeholder="Tel" />
+      </mat-form-field>
+
+      <!-- Quartier -->
+      <mat-form-field>
+        <mat-select #quartier placeholder="Ton quartier">
+          <mat-option *ngFor="let quartier of quartiers" [value]="quartier">
+            {{ quartier }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
+      >
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step label="Resume">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="flex-center flex-center"
+      fxLayoutGap="0px"
+    >
+      <p>Merci {{ prenom.value }} {{ nom.value }} pour ton inscription.</p>
+      <p>Voici tes informations generales:</p>
+      <p>Ton addresse: {{ quartier.value }}</p>
+      <p>Ton numero: {{ tel.value }}</p>
+      <p>Ton ecole d'origine: {{ ecole.value }}</p>
+      <p>Ta classe: {{ classe.value }}</p>
+
+      <p>Les cours que tu as choisis:</p>
+      <ul>
+        <li *ngFor="let matiere of matieresRef.selected">
+          {{ matiere.value }}
+        </li>
+      </ul>
+
+      <p>Tarifs: {{ matieresRef.selected.length * 10000 }} FCFA</p>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="flex-center flex-center"
+        fxLayoutGap="0px"
+      >
+        <button mat-button matStepperPrevious>Retour</button>
+        <button
+          mat-button
+          (click)="
+            postEleveInfo(
+              nom.value,
+              prenom.value,
+              tel.value,
+              quartier.value,
+              ecole.value,
+              classe.value,
+              matieresRef.value
+            )
+          "
+        >
+          Valider
+        </button>
+      </div>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
